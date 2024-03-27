@@ -9,5 +9,6 @@ namespace SignalR.DataAccesssLayer.Abstract
 {
     public interface IProductDal : IGenericDal<Product>
     {
+        List<Product> GetProductsWithCategories();
     }
 }

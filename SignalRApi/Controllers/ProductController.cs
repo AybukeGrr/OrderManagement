@@ -1,6 +1,8 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore;
 using SignalR.BusinessLayer.Abstract;
+using SignalR.DataAccesssLayer.Concrete;
 using SignalR.DtoLayer.ProductDto;
 using SignalR.EntityLayer.Entities;
 
@@ -61,6 +63,23 @@ namespace SignalRApi.Controllers
             };
             _productService.TUpdate(product);
             return Ok("Product Güncellendi");
+        }
+
+        [HttpGet("ProductListWithCategory")]
+        public IActionResult ProductListWithCategory()
+        {
+            var context = new SignalRContext();
+            var values = context.Products.Include(x => x.Category).Select(y => new ResultProductWithCategory
+            {
+                Description = y.Description,
+                ImageUrl = y.ImageUrl,
+                Price = y.Price,
+                ProductID = y.ProductID,
+                ProductName = y.ProductName,
+                CategoryName = y.Category.CategoryName,
+                ProductStatus = y.ProductStatus,
+            });
+            return Ok(values.ToList());
         }
 
         [HttpGet("GetProduct")]

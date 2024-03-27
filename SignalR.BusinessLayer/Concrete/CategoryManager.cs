@@ -10,13 +10,13 @@ using System.Threading.Tasks;
 
 namespace SignalR.BusinessLayer.Concrete
 {
-    internal class CategoryManager : ICategoryService
+    public class CategoryManager : ICategoryService
     {
         private readonly ICategoryDal _categoryDal;
 
         public CategoryManager(ICategoryDal categoryDal)
         {
-            this.categoryDal = categoryDal;
+            _categoryDal = categoryDal;
         }
 
         public void TAdd(Category entity)

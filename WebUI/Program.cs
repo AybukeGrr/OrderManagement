@@ -1,9 +1,19 @@
+
+using SignalR.DataAccesssLayer.Concrete;
+using SignalR.EntityLayer.Entities;
+
+
 var builder = WebApplication.CreateBuilder(args);
 
+builder.Services.AddDbContext<SignalRContext>();
+
 // Add services to the container.
+builder.Services.AddHttpClient();
 builder.Services.AddRazorPages();
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())

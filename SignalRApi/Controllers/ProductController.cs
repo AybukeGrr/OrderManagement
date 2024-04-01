@@ -19,7 +19,7 @@ namespace SignalRApi.Controllers
             _productService = productService;
         }
 
-        [HttpGet]
+        [HttpGet()]
         public IActionResult ProductList()
         {
             var values = _productService.TGetListAll();
@@ -41,7 +41,7 @@ namespace SignalRApi.Controllers
             return Ok("Product Eklendi");
         }
 
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult DeleteProduct(int id)
         {
             var value = _productService.TGetById(id);

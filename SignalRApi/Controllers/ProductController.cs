@@ -19,11 +19,17 @@ namespace SignalRApi.Controllers
             _productService = productService;
         }
 
-        [HttpGet()]
+        [HttpGet]
         public IActionResult ProductList()
         {
             var values = _productService.TGetListAll();
             return Ok(values);
+        }
+
+        [HttpGet("ProductCount")]
+        public IActionResult ProductCount()
+        {
+            return Ok(_productService.TProductCount());
         }
 
         [HttpPost]

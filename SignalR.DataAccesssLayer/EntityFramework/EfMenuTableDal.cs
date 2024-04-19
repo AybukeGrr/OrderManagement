@@ -10,16 +10,16 @@ using System.Threading.Tasks;
 
 namespace SignalR.DataAccesssLayer.EntityFramework
 {
-    public class EfMoneyCaseDal : GenericRepository<MoneyCase>, IMoneyCaseDal
+    public class EfMenuTableDal : GenericRepository<MenuTable>, IMenuTableDal
     {
-        public EfMoneyCaseDal(SignalRContext context) : base(context)
+        public EfMenuTableDal(SignalRContext context) : base(context)
         {
         }
 
-        public decimal TotalMoneyCaseAmount()
+        public int MenuTableCount()
         {
             using var context = new SignalRContext();
-            return context.MoneyCases.Select(x => x.TotalAmount).FirstOrDefault();
+            return context.MenuTables.Count();
         }
     }
 }

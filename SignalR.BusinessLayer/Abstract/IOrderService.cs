@@ -12,5 +12,6 @@ namespace SignalR.BusinessLayer.Abstract
         public int TTotalOrderCount();
         public int TActiveOrderCount();
         public int TLastOrderPrice();
+        public decimal TTodayTotalPrice();
     }
 }

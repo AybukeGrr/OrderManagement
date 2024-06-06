@@ -1,5 +1,6 @@
 ﻿using Microsoft.AspNetCore.SignalR;
 using Microsoft.EntityFrameworkCore.Query.Internal;
+using Microsoft.EntityFrameworkCore.SqlServer.Query.Internal;
 using SignalR.BusinessLayer.Abstract;
 using SignalR.DataAccesssLayer.Concrete;
 using System.Runtime.CompilerServices;
@@ -76,7 +77,6 @@ namespace SignalRApi.Hubs
             var value16 = _menuTableService.TMenuTableCount();
             await Clients.All.SendAsync("ReceiveMenuTableCount", value16);
         }
-
         public async Task SendProgress()
         {
             var value = _moneyCaseService.TTotalMoneyCaseAmount();
@@ -88,13 +88,11 @@ namespace SignalRApi.Hubs
             var value3 = _orderService.TActiveOrderCount();
             await Clients.All.SendAsync("ReceiveActiveOrderCount", value3);
         }
-
         public async Task GetBookingList()
         {
             var values = _bookingService.TGetListAll();
             await Clients.All.SendAsync("ReceiveBookingList", values);
         }
-
         public async Task GetNotification()
         {
             var value = _notificationService.TNotificationCountByStatusFalse();
@@ -102,6 +100,11 @@ namespace SignalRApi.Hubs
 
             var notificationListByFalse = _notificationService.TGetAllNotificationByFalse();
             await Clients.All.SendAsync("ReceiveNotificationListByFalse", notificationListByFalse);
+        }
+        public async Task GetMenuTableStatus()
+        {
+            var value = _menuTableService.TGetListAll();
+            await Clients.All.SendAsync("ReceiveMenuTableStatus", value);
         }
 
     }

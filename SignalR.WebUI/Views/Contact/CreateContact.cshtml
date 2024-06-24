@@ -16,7 +16,7 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="location">Konum Giriniz</label>
+                                <label for="location">Lokasyonu Giriniz</label>
                                 <input type="text" class="form-control" asp-for="Location" id="location">
                             </div>
                         </div>
@@ -28,14 +28,38 @@
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="mail">Mail Giriniz</label>
+                                <label for="mail">Mail Adresi Giriniz</label>
                                 <input type="email" class="form-control" asp-for="Mail" id="mail">
                             </div>
                         </div>
                         <div class="card-body">
                             <div class="form-group">
-                                <label for="footerdescription">Açıklama Giriniz</label>
-                                <textarea rows="5" class="form-control" asp-for="FooterDescription" id="footerdescription"></textarea>
+                                <label for="title">Alt Başlık</label>
+                                <input type="text" class="form-control" asp-for="FooterTitle" id="title">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="OpenDays">Açık Günler</label>
+                                <input type="text" class="form-control" asp-for="OpenDays" id="OpenDays">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="OpenDaysDescription">Açık Günler Açıklama</label>
+                                <input type="text" class="form-control" asp-for="OpenDaysDescription" id="OpenDaysDescription">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="OpenHours">Açık Saatler</label>
+                                <input type="text" class="form-control" asp-for="OpenDaysHours" id="OpenDaysHours">
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="Description">Alt Açıklama Alanı</label>
+                                <textarea rows="5" class="form-control" asp-for="FooterDescription" id="Description"></textarea>
                             </div>
                         </div>
                         <div class="card-action">

@@ -4,7 +4,9 @@ using SignalR.DataAccesssLayer.Abstract;
 using SignalR.DataAccesssLayer.Concrete;
 using SignalR.DataAccesssLayer.EntityFramework;
 using SignalRApi.Hubs;
+using System.Reflection;
 using System.Text.Json.Serialization;
+using AutoMapper;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -21,6 +23,7 @@ builder.Services.AddCors(opt =>
 
     });
 });
+
 
 builder.Services.AddSignalR();
 

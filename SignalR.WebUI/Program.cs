@@ -1,3 +1,4 @@
+using Microsoft.AspNetCore.Hosting;
 using SignalR.DataAccesssLayer.Concrete;
 using SignalR.EntityLayer.Entities;
 
@@ -10,6 +11,7 @@ builder.Services.AddHttpClient();
 builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
+
 
 // Configure the HTTP request pipeline.
 if (!app.Environment.IsDevelopment())
